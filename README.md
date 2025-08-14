@@ -32,7 +32,7 @@ Ngành vận tải đô thị tại New York đang phải đối mặt với nh�
 
 ## 3. Kiến trúc hệ thống (System Architecture)
 <p align="center">
-  <img src="./images/data_architecture.png" alt="Sơ đồ kiến-trúc" width="800">
+  <img src="https://github.com/caogiathinh/End-to-End-Cloud-Data-Platform/blob/main/images/DataArchitecture.png" alt="Sơ đồ kiến-trúc" width="800">
 </p>
 Dự án áp dụng kiến trúc **ELT (Extract - Load - Transform)** trên nền tảng cloud, với các thành phần được container hóa để đảm bảo tính nhất quán và khả năng tái lập.
 
