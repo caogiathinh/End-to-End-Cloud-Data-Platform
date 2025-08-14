@@ -1,8 +1,12 @@
-# DE-NYC-Taxi: Nền tảng Dữ liệu Hiện đại cho Phân tích Vận tải Đô thị
+# End-to-end-cloud-data-platform: Nền tảng Dữ liệu Hiện đại cho Phân tích Vận tải Đô thị
 
-![Tech Stack Banner](D:\End-to-End Cloud Data Platform\DataArchitecture.png)
+<p align="center">
+  <img src="D:\End-to-End-Cloud-Data-Platform\DataArchitecture.png" alt="Sơ đồ kiến-trúc" width="800">
+</p>
 
-Dự án này xây dựng một nền tảng dữ liệu end-to-end, có khả năng mở rộng và tự động hóa, nhằm giải quyết các bài toán phân tích nghiệp vụ và hoạch định chiến lược cho ngành vận tải đô thị tại New York, dựa trên bộ dữ liệu công khai của Ủy ban Taxi và Limousine (TLC).
+**Trạng thái dự án:** 🚧 **Đang triển khai (In Progress)** 🚧
+
+Dự án này nhằm xây dựng một nền tảng dữ liệu end-to-end, có khả năng mở rộng và tự động hóa, để giải quyết các bài toán phân tích nghiệp vụ và hoạch định chiến lược cho ngành vận tải đô thị tại New York. Tài liệu này mô tả kiến trúc đã được thiết kế và lộ trình triển khai dự án.
 
 ---
 
@@ -10,31 +14,29 @@ Dự án này xây dựng một nền tảng dữ liệu end-to-end, có khả n
 
 Ngành vận tải đô thị tại New York đang phải đối mặt với những thách thức phức tạp, ảnh hưởng đến cả nhà quản lý (TLC), tài xế và hành khách:
 
-*   **Tắc nghẽn nghiêm trọng:** Một người dân New York mất trung bình **117 giờ mỗi năm** vì kẹt xe, làm giảm hiệu suất của tài xế, tăng chi phí nhiên liệu và ảnh hưởng trực tiếp đến thu nhập.
+*   **Tắc nghẽn nghiêm trọng:** Một người dân New York mất trung bình **117 giờ mỗi năm** vì kẹt xe, làm giảm hiệu suất của tài xế và ảnh hưởng trực tiếp đến thu nhập.
 *   **Thay đổi mô hình nhu cầu (Hậu COVID-19):** Mô hình làm việc hybrid/remote đã làm thay đổi các "điểm nóng" và "giờ cao điểm" truyền thống, khiến các mô hình dự báo cũ trở nên vô giá trị.
-*   **Cạnh tranh khốc liệt từ Xe Công nghệ (FHVs):** Sự trỗi dậy của Uber, Lyft với **50,000+ xe** đã phá vỡ thị trường taxi truyền thống (chỉ có ~13,500 taxi vàng), gây ra cuộc khủng hoảng về giá trị huy hiệu taxi và đẩy hàng ngàn tài xế vào cảnh nợ nần.
-*   **Phản ứng chậm của nhà quản lý:** TLC thiếu một hệ thống phân tích dữ liệu hiện đại để có cái nhìn toàn cảnh, kịp thời về thị trường. Các quyết định điều tiết (như chính sách định giá tắc nghẽn) cần dữ liệu để đánh giá hiệu quả một cách chính xác.
+*   **Cạnh tranh khốc liệt từ Xe Công nghệ (FHVs):** Sự trỗi dậy của Uber, Lyft đã phá vỡ thị trường taxi truyền thống, đặt ra yêu cầu cấp thiết về việc hiện đại hóa năng lực quản lý và cạnh tranh.
 
 **Vấn đề cốt lõi:** Sự thiếu hụt một nền tảng dữ liệu tập trung, mạnh mẽ đã khiến các bên liên quan hoạt động với thông tin rời rạc, dẫn đến hiệu quả kinh doanh thấp và khả năng quản lý bị hạn chế.
 
 ## 2. Giải pháp & Mục tiêu (The Solution)
 
-Để giải quyết các thách thức trên, dự án này triển khai một **nền tảng dữ liệu hiện đại (Modern Data Platform)** với các mục tiêu chính:
+Để giải quyết các thách thức trên, dự án này sẽ triển khai một **nền tảng dữ liệu hiện đại (Modern Data Platform)** với các mục tiêu chính:
 
 *   **Về mặt Kỹ thuật:**
-    1.  **Xây dựng một đường ống dữ liệu (Data Pipeline) hoàn chỉnh và tự động:** Tự động thu thập, làm sạch, biến đổi và nạp dữ liệu hàng tháng.
-    2.  **Đảm bảo chất lượng dữ liệu:** Tích hợp các bài kiểm thử tự động (data testing) trong suốt pipeline để đảm bảo dữ liệu luôn chính xác và đáng tin cậy.
-    3.  **Tối ưu hóa hiệu năng và khả năng mở rộng:** Sử dụng các công nghệ và kiến trúc có khả năng xử lý lượng dữ liệu tăng thêm 50% mà không cần thay đổi lớn về thiết kế.
+    1.  **Xây dựng một đường ống dữ liệu (Data Pipeline) hoàn chỉnh và tự động.**
+    2.  **Đảm bảo chất lượng dữ liệu** thông qua các bài kiểm thử tự động.
+    3.  **Thiết kế hệ thống có khả năng mở rộng** và dễ bảo trì.
 
 *   **Về mặt Nghiệp vụ:**
-    1.  **Tối ưu hóa Vận hành:** Cung cấp các báo cáo tương tác để xác định các "điểm nóng" về nhu cầu theo không gian và thời gian.
-    2.  **Đo lường Hiệu suất Kinh doanh (KPIs):** Xây dựng các dashboard quản trị để theo dõi các chỉ số cốt lõi như tổng doanh thu, số chuyến đi, thu nhập tài xế.
-    3.  **Tạo sân chơi công bằng:** Cung cấp cho TLC năng lực giám sát và điều tiết thị trường dựa trên dữ liệu, giúp cân bằng cạnh tranh giữa taxi truyền thống và xe công nghệ.
+    1.  **Tối ưu hóa Vận hành** qua phân tích nhu cầu thị trường.
+    2.  **Xây dựng Hệ thống Đo lường Hiệu suất Kinh doanh (KPIs).**
+    3.  **Cung cấp năng lực phân tích dữ liệu** để hỗ trợ TLC ra quyết định.
 
 ## 3. Kiến trúc hệ thống (System Architecture)
 
 Dự án áp dụng kiến trúc **ELT (Extract - Load - Transform)** trên nền tảng cloud, với các thành phần được container hóa để đảm bảo tính nhất quán và khả năng tái lập.
-
 
 
 ### Tech Stack
@@ -52,15 +54,30 @@ Dự án áp dụng kiến trúc **ELT (Extract - Load - Transform)** trên nề
 
 ## 4. Mô hình Dữ liệu (Data Model)
 
-Hệ thống triển khai mô hình **Star Schema** trong Data Warehouse (BigQuery) để tối ưu cho các truy vấn phân tích. Mô hình bao gồm một bảng Fact trung tâm (`fct_trips`) và nhiều bảng Dimension xung quanh.
+Hệ thống sẽ triển khai mô hình **Star Schema** trong Data Warehouse (BigQuery) để tối ưu cho các truy vấn phân tích. Mô hình bao gồm một bảng Fact trung tâm (`fct_trips`) và nhiều bảng Dimension xung quanh (`dim_datetime`, `dim_locations`,...).
 
+Thiết kế này sẽ được tối ưu hiệu năng bằng cách **Partition** bảng Fact theo ngày và **Cluster** theo các cột thường được lọc.
 
+## 5. Lộ trình Triển khai (Implementation Roadmap)
 
-*   **Bảng Fact:** `fct_trips` chứa các chỉ số định lượng của mỗi chuyến đi (ví dụ: `trip_distance`, `total_amount`).
-*   **Bảng Dimension:** `dim_datetime`, `dim_locations`, `dim_payment_types`,... cung cấp ngữ cảnh cho dữ liệu trong bảng Fact.
+Dự án sẽ được triển khai theo các giai đoạn chính, tương ứng với việc xây dựng từng phần của kiến trúc:
 
-Thiết kế này được tối ưu hiệu năng bằng cách **Partition** bảng Fact theo ngày (`pickup_datetime`) và **Cluster** theo các cột thường được lọc (`service_type`, `pickup_location_id`).
+*   [ ] **Giai đoạn 1: Foundation & Infrastructure (Tuần 1)**
+    *   [ ] Thiết lập môi trường phát triển local với Docker & PostgreSQL.
+    *   [ ] Viết script ingest dữ liệu ban đầu.
+    *   [ ] Dùng Terraform để tự động hóa việc tạo GCS bucket và BigQuery dataset.
 
-## 5. Cấu trúc dự án
+*   [ ] **Giai đoạn 2: Orchestration & Cloud DWH (Tuần 2)**
+    *   [ ] Cài đặt và cấu hình Kestra.
+    *   [ ] Xây dựng pipeline ELT tự động từ nguồn dữ liệu -> GCS -> BigQuery.
+    *   [ ] Tối ưu hóa bảng trong BigQuery với Partitioning và Clustering.
 
-Dự án được tổ chức theo cấu trúc monorepo, nơi mỗi thư mục có một vai trò rõ ràng:
+*   [ ] **Giai đoạn 3: Analytics Engineering (Tuần 3)**
+    *   [ ] Thiết lập project dbt.
+    *   [ ] Xây dựng các data model (staging, core) theo Star Schema.
+    *   [ ] Triển khai các bài kiểm thử dữ liệu (data tests) để đảm bảo chất lượng.
+
+*   [ ] **Giai đoạn 4: Batch Processing & Visualization (Tuần 4)**
+    *   [ ] Sử dụng Spark để xử lý các tác vụ biến đổi dữ liệu phức tạp.
+    *   [ ] Xây dựng các dashboard phân tích ban đầu trên Looker Studio.
+    *   [ ] Tổng kết dự án và hoàn thiện tài liệu.
