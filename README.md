@@ -1,5 +1,5 @@
 # End-to-end-cloud-data-platform: Nền tảng Dữ liệu Hiện đại cho Phân tích Vận tải Đô thị
-![Sơ đồ kiến trúc tổng thể](./images/data_architecture.png)
+
 **Trạng thái dự án:** 🚧 **Đang triển khai (In Progress)** 🚧
 
 Dự án này nhằm xây dựng một nền tảng dữ liệu end-to-end, có khả năng mở rộng và tự động hóa, để giải quyết các bài toán phân tích nghiệp vụ và hoạch định chiến lược cho ngành vận tải đô thị tại New York. Tài liệu này mô tả kiến trúc đã được thiết kế và lộ trình triển khai dự án.
@@ -31,7 +31,9 @@ Ngành vận tải đô thị tại New York đang phải đối mặt với nh�
     3.  **Cung cấp năng lực phân tích dữ liệu** để hỗ trợ TLC ra quyết định.
 
 ## 3. Kiến trúc hệ thống (System Architecture)
-
+<p align="center">
+  <img src="./images/data_architecture.png" alt="Sơ đồ kiến-trúc" width="800">
+</p>
 Dự án áp dụng kiến trúc **ELT (Extract - Load - Transform)** trên nền tảng cloud, với các thành phần được container hóa để đảm bảo tính nhất quán và khả năng tái lập.
 
 
