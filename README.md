@@ -1,6 +1,6 @@
 # DE-NYC-Taxi: Nền tảng Dữ liệu Hiện đại cho Phân tích Vận tải Đô thị
 
-![Tech Stack Banner](https://user-images.githubusercontent.com/875246/185756770-519a4a3c-531e-4209-9b93-a3344b1c7ba1.png)
+![Tech Stack Banner](D:\End-to-End Cloud Data Platform\DataArchitecture.png)
 
 Dự án này xây dựng một nền tảng dữ liệu end-to-end, có khả năng mở rộng và tự động hóa, nhằm giải quyết các bài toán phân tích nghiệp vụ và hoạch định chiến lược cho ngành vận tải đô thị tại New York, dựa trên bộ dữ liệu công khai của Ủy ban Taxi và Limousine (TLC).
 
